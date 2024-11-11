@@ -1,34 +1,27 @@
-import sql from 'pg'
-
-const { Client } = require('pg') 
+import sql, { connect } from 'mssql'
 
 
 
 const dbSettings = {
-  user: 'catalogo_sistemas',
-  password: 'cs.24@efe.cl',
-  host: '172.30.100.201',    
-  database: 'postgres',
-  port: '5433',
-  /*options:{
+  user: 'delivery',
+  password: 'madg043007',
+  server: '173.248.151.67,1533',    
+  database: 'delivery',
+  options:{
        encrypt: false,
        trusServerCertificate: true,
-  },*/
+  },
 }
 
 export async function getConnection() {
   try{
-
-    //const pool = await  sql.connect(dbSettings)
-    const connect = new Client(dbSettings)
-    /*
     const pool = await sql.connect('Server='   + dbSettings.server  + 
                                   ';Database=' + dbSettings.database +
                                   ';User Id='  + dbSettings.user +
                                   ';Password=' + dbSettings.password +
                                   ';Encrypt='  + dbSettings.options.encrypt + '') 
-    */
-    return connect; /**retorno la conexion */
+
+    return pool; /**retorno la conexion */
     
   }catch(error){
     console.error(error)

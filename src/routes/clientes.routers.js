@@ -4,7 +4,7 @@ import {Listar_Clientes} from '../controllers/clientes.controllers.js'
 
 const router = Router()
 
-router.get('/Listar_Clientes',Listar_Clientes) 
+router.get('/Listar_Clientes2',Listar_Clientes) 
 
 
 /**quiero que conteste algo por defecto */
