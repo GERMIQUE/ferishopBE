@@ -3,7 +3,7 @@ import Pedido from '../services/pedido.services.js';
 
 const Listar_Cabecerapedido = async (req, res) => {
     try {
-        console.log("entro a Listar_Cabecerapedido de controller")
+        console.log("entro a Listar_Cabecerapedido de controller",req.body)
         const result = await new Pedido().Listar_Cabecerapedido(req.body);
         res.status(200).json(result);
     } catch (error) {
@@ -46,6 +46,8 @@ const Listar_Detalle_Productos = async (req, res) => {
 };
 
  
+
+
 
 
 

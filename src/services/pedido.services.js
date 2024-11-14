@@ -27,11 +27,11 @@ class Pedido {
  
 
 
-async  Listar_detallePedido  (p_param)  {
+async  Listar_detallePedido  (p_params)  {
      
     const pool = await getConnection();
-    
-    const result = await pool.request().input("nropedido",sql.Numeric,p_params.nropedido)
+     console.log(p_params)
+    const result = await pool.request().input("nropedido",sql.Numeric,p_params.nropedid)
                              .query('Listar_detallePedido @nropedido')
     console.log(result)
     return result
@@ -79,7 +79,7 @@ async  Listar_Detalle_Productos  (p_param)  {
 }
 
 
-
+/*
 async  Listar_Cabecerapedido  (p_param)  {
      
     const pool = await getConnection();
@@ -88,12 +88,12 @@ async  Listar_Cabecerapedido  (p_param)  {
                              .query('Listar_Cabecerapedido @idcliente')
     console.log(result)
     return result
-   // res.json(result.recordset) /**retorno el resultado */
+   // res.json(result.recordset) /**retorno el resultado  
 
 
 }
 
-
+*/
 
 async Insertar_CabeceraPedido (p_param)  {
 
