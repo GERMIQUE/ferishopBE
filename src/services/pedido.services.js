@@ -144,6 +144,56 @@ async Insertar_CabeceraPedido (p_param)  {
     }
 
 
+    async Actualizar_CabeceraPedido (p_param)  {
+
+      
+     
+    
+        const pool = await getConnection();
+            
+        
+        console.log(" p_param[0].idPedido = ")
+        console.log(p_param[0].idPedido)
+        console.log(p_param.length)
+    
+         
+         const result =  await pool.request().input("idCabeceraPedido",sql.Numeric,p_param[0].idPedido)                            
+                            .query('Eliminar_PedidoXIdcabecera @idCabeceraPedido')
+        
+    
+                           // console.log("result = ", result.recordset[0].id)
+    
+     
+            for(let i=0;i< p_param.length ; i++){
+                
+                console.log("Registro ")
+                console.log(p_param[i].id)
+               /* console.log(req.body[i].id)
+                console.log(req.body[i].Precio)
+                console.log(req.body[i].idMedida)
+                console.log(req.body[i].Cantidad)
+                console.log(req.body[i].subTotal)
+                */ 
+               /* se inserta el Nro pedido nuevo 
+               p_param[i].idPedido = result.recordset[0].id
+               */
+                
+               // console.log(req.body[i].idPedido) 
+               /** se inserta todos lo productos que van en el pedido */
+             await new Pedido().Insertar_Pedido(p_param[i])
+                }
+    
+    
+         
+              //  return result.recordset[0].id
+        
+        
+               //res.json(result.recordset[0].id) /**retorno el resultado */
+    
+        
+        }
+
+
 
 
      async Insertar_Pedido  (p_param) {
@@ -160,12 +210,12 @@ async Insertar_CabeceraPedido (p_param)  {
         console.log(p_param.Precio)
         //console.log(req.body.idMedida)
         //console.log(req.body.Cantidad)
-        console.log(p_param.subTotal) 
-         console.log("Comentario = ",p_param.Comentario) 
+        console.log("Insertar ---") 
+         console.log("p_param.id = ",p_param.id) 
         
         
          const pool = await getConnection();
-        await pool.request().input("idProducto",sql.Numeric,p_param.id)
+        await pool.request().input("idProducto",sql.Numeric,p_param.idProducto)
                             .input("cantidad",sql.Numeric,p_param.Cantidad) 
                             .input("idTipomedida",sql.Numeric,p_param.idMedida)
                             .input("idCliente",sql.Numeric,p_param.idCliente) 

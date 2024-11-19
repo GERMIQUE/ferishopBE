@@ -48,6 +48,17 @@ const Listar_Detalle_Productos = async (req, res) => {
  
 
 
+const Actualizar_CabeceraPedido = async (req, res) => {
+    try {
+        console.log("entro a Actualizar_CabeceraPedido de controller")
+        const result = await new Pedido().Actualizar_CabeceraPedido(req.body);
+        res.status(200).json(result);
+    } catch (error) {
+        console.log("Error =", error)
+        res.status(500).json({ error: error + ' Error en proceso' });
+    }
+};
+
 
 
 
@@ -97,4 +108,5 @@ export {
     Listar_Detalle_Productos,
     Insertar_CabeceraPedido,
     Insertar_Pedido 
+    ,Actualizar_CabeceraPedido
 };

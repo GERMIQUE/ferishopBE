@@ -6,7 +6,8 @@ import {Listar_Cabecerapedido,
         Listar_Productos,
         Listar_Detalle_Productos,
         Insertar_CabeceraPedido,
-        Insertar_Pedido  } from '../controllers/pedido.controllers.js'
+        Insertar_Pedido,
+        Actualizar_CabeceraPedido  } from '../controllers/pedido.controllers.js'
 
 const router = Router()
 
@@ -16,6 +17,8 @@ router.post('/Listar_Clientes',Listar_Clientes)
 router.post('/Listar_Productos',Listar_Productos)
 router.post('/Listar_Detalle_Productos',Listar_Detalle_Productos)
 router.post('/Insertar_CabeceraPedido',Insertar_CabeceraPedido) 
+router.post('/Actualizar_CabeceraPedido',Actualizar_CabeceraPedido) 
+
 //router.post('/Insertar_CabeceraPedido',Listar_detallePedido) 
 
 
